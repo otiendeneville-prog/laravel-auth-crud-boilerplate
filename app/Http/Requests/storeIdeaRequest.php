@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use League\CommonMark\Extension\DescriptionList\Node\Description;
 
 class storeIdeaRequest extends FormRequest
 {
@@ -23,7 +24,7 @@ class storeIdeaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'description'=>['required','min:10'],
         ];
     }
 }
