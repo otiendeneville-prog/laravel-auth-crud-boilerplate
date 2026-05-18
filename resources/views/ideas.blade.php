@@ -51,7 +51,7 @@
                 </ul>
             @else
             @endif
-            <div class="card bg-neutral text-neutral-content w-96">
+            <div class=" mt-6 grid grid-col-2 gap-6-xl gap-y-4 card bg-neutral text-neutral-content w-96">
                 <div class="card-body items-center text-center">
                     <h2 class="card-title">Cookies!</h2>
                     <p>We are using cookies for no reason.</p>
