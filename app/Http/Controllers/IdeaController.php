@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\storeIdeaRequest;
 use App\Models\Idea;
 use Illuminate\Http\Request;
 
@@ -30,9 +29,9 @@ class IdeaController extends Controller
 
     /**
      * Store a newly created resource in storage.
-   
+  
      */
-    public function store(storeIdeaRequest $request)
+    public function store(Request $request)
     {
        
          request()->validate([
@@ -86,5 +85,11 @@ return redirect ('ideas');
     {
          $idea->delete();
     return redirect ('/ideas');
+    }
+
+    public function message(){
+        return[
+            'description.required' => 'description is required',
+        ];
     }
 }
