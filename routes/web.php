@@ -4,6 +4,7 @@
 use App\Models\Idea;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IdeaController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 
 Route::get('/', function () {
