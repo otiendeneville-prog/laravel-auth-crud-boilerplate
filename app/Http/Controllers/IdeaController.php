@@ -35,10 +35,10 @@ class IdeaController extends Controller
     public function store(storeIdeaRequest $request)
   
     {
-         dd(request()->all());
-    //      request()->validate([
-    //     'ideas'=>'required'
-    // ]);
+    
+         request()->validate([
+        'ideas'=>'required'
+    ]);
     //to prevent sql not null error;
     Idea::create([
     'description'=>request('ideas'),
