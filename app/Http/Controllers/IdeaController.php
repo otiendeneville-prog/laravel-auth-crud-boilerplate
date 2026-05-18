@@ -13,11 +13,11 @@ class IdeaController extends Controller
      */
     public function index()
     {
-          $ideas =Idea::all();
-   
-    return view('ideas', [
-        'ideas' => $ideas,
-    ]);
+        $ideas = Idea::all();
+
+        return view('ideas', [
+            'ideas' => $ideas,
+        ]);
     }
 
     /**
@@ -33,18 +33,18 @@ class IdeaController extends Controller
   
      */
     public function store(storeIdeaRequest $request)
-  
+
     {
-    
-         request()->validate([
-        'ideas'=>'required'
-    ]);
-    //to prevent sql not null error;
-    Idea::create([
-    'description'=>request('ideas'),
-    'state'=>'pending'
-]);
-return redirect ('ideas');
+
+        request()->validate([
+            'ideas' => 'required'
+        ]);
+        //to prevent sql not null error;
+        Idea::create([
+            'description' => request('ideas'),
+            'state' => 'pending'
+        ]);
+        return redirect('ideas');
     }
 
     /**
@@ -52,9 +52,9 @@ return redirect ('ideas');
      */
     public function show(Idea $idea)
     {
-         return view('ideas', [
-        'idea' => $idea,
-    ]);
+        return view('ideas', [
+            'idea' => $idea,
+        ]);
     }
 
     /**
@@ -62,11 +62,11 @@ return redirect ('ideas');
      */
     public function edit(Idea $idea)
     {
-        // $idea->edit([
-        //     $idea=>request('idea'),
-        // ]);
-        // return view('idea.edit',compact('idea'));
-           return view('ideas.edit');
+        $idea->edit([
+            $idea => request('idea'),
+        ]);
+        return view('ideas.edit', compact('idea'));
+        //    return view('ideas.edit');
     }
 
     /**
@@ -74,10 +74,10 @@ return redirect ('ideas');
      */
     public function update(Request $request, Idea $idea)
     {
-          $idea->update([
-        $idea => request('idea'),
-    ]);
-    return redirect("/ideas/{$idea->id}");
+        $idea->update([
+            $idea => request('idea'),
+        ]);
+        return redirect("/ideas/{$idea->id}");
     }
 
     /**
@@ -85,12 +85,13 @@ return redirect ('ideas');
      */
     public function destroy(Idea $idea)
     {
-         $idea->delete();
-    return redirect ('/ideas');
+        $idea->delete();
+        return redirect('/ideas');
     }
 
-    public function message(){
-        return[
+    public function message()
+    {
+        return [
             'description.required' => 'description is required',
         ];
     }
