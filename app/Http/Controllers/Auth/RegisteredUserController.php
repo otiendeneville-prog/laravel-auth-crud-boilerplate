@@ -10,4 +10,7 @@ class RegisteredUserController extends Controller
      public function create(){
         return view('auth.register');
     }
+    public function store(){
+        dd('Create a new user and log in them');
+    }
 }
