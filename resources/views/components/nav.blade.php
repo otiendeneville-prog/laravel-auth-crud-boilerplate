@@ -18,7 +18,7 @@
         <li><a>About</a></li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl">Ideas!</a>
+    <a class="btn btn-ghost text-xl">Idea</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
@@ -27,8 +27,8 @@
         <details>
           <summary>Parent</summary>
           <ul class="p-2 bg-base-100 w-40 z-1">
-            <li><a>programs</a></li>
-            <li><a>comments</a></li>
+            <li><a href="/ideas" >programs</a></li>
+            <li><a href="/ideas/create">comments</a></li>
           </ul>
         </details>
       </li>
@@ -36,6 +36,6 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <a class="btn">Button</a>
+    <a class="btn">Register</a>
   </div>
 </div>
