@@ -13,7 +13,7 @@ class storeIdeaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class storeIdeaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description'=>['required','min:10'],
+            'description.required'=>'Come on dude give me something'
         ];
     }
 }
