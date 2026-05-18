@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 class RegisteredUserController extends Controller
 {
      public function create(){
-        return view('auth.register');
+        return view('register');
     }
     public function store(){
         dd('Create a new user and log in them');
     }
 }
+
+
