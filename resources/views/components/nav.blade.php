@@ -36,6 +36,6 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <a class="btn">Register</a>
+    <a class="btn btn-primary" href="/register">Register</a>
   </div>
 </div>
