@@ -60,7 +60,7 @@
     <a class="btn">Button</a>
   </div>
 </div>
-    <main>
+    <main class="max-w-3xl mx-auto">
         {{ $slot }}
     </main>
 </body>
