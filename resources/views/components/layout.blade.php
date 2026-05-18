@@ -18,7 +18,7 @@
     
 </head>
 
-<body class="bg-gray-700 p-7 max-w-xl max-auto">
+<body class="bg-gray-700">
     <div class="navbar bg-base-100 shadow-sm">
   <div class="navbar-start">
     <div class="dropdown">
