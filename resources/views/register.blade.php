@@ -1,6 +1,7 @@
 <x-layout>
   register from here:
   <form action="/register" method="POST">
+    @csrf
   <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 max-auto">
   <legend class="fieldset-legend">Register</legend>
 
