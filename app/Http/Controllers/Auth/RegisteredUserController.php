@@ -11,7 +11,7 @@ class RegisteredUserController extends Controller
         return view('register');
     }
     public function store(){
-        dd('Create a new user and log in them');
+        dd('request()->all()');
     }
 }
 
