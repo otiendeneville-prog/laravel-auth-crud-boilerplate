@@ -1,9 +1,12 @@
 <x-layout>
   register from here:
-  <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-  <legend class="fieldset-legend">Login</legend>
+  <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 max-auto">
+  <legend class="fieldset-legend">Register</legend>
 
-  <label class="label">Email</label>
+  <label class="lable" for="name">Name</label>
+  <input class="text" placeholder="Your Name">
+
+  <label class="label" for="email">Eame</label>
   <input type="email" class="input" placeholder="Email" />
 
   <label class="label">Password</label>
