@@ -10,8 +10,12 @@ class RegisteredUserController extends Controller
      public function create(){
         return view('register');
     }
-    public function store(){
-        dd('request()->all()');
+    public function store(Request $request){
+       $validate = $request->validate([
+            'name'=>['required','string','max:255'],
+            'email'=>['required','string','email','max:255','inique:users'],
+            'password' =>['required','password::default()'],
+        ]);
     }
 }
 
