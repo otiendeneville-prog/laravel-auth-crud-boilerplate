@@ -11,10 +11,15 @@ class RegisteredUserController extends Controller
         return view('register');
     }
     public function store(Request $request){
-       $validate = $request->validate([
+        $request->validate([
             'name'=>['required','string','max:255'],
             'email'=>['required','string','email','max:255','inique:users'],
             'password' =>['required','password::default()'],
+        ]);
+        $User = User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>Hash::make($request->password),
         ]);
     }
 }
