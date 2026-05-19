@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 class RegisteredUserController extends Controller
+
 {
      public function create(){
         return view('register');
@@ -22,6 +24,8 @@ class RegisteredUserController extends Controller
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
         ]);
+        Auth::login($user);
+        return redirect('/ideas');
     }
 }
 
