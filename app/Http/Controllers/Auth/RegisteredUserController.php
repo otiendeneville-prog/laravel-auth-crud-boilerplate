@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 class RegisteredUserController extends Controller
 
 {
@@ -17,7 +18,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name'=>['required','string','max:255'],
             'email'=>['required','string','email','max:255','inique:users'],
-            'password' =>['required','password::default()'],
+            'password' =>['required',password::default()],
         ]);
         $User = User::create([
             'name'=>$request->name,
