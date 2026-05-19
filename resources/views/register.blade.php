@@ -6,7 +6,7 @@
   <label class="lable" for="name">Name</label>
   <input class="text" placeholder="Your Name">
 
-  <label class="label" for="email">Eame</label>
+  <label class="label" for="email">Email</label>
   <input type="email" class="input" placeholder="Email" />
 
   <label class="label">Password</label>
