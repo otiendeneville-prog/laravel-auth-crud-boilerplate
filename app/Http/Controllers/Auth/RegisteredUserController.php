@@ -25,7 +25,7 @@ class RegisteredUserController extends Controller
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
         ]);
-        Auth::login($user);
+        Auth::login($User);
        return redirect()->intended('/ideas');
     }
 }
