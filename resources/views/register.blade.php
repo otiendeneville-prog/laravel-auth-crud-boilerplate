@@ -6,7 +6,7 @@
   <legend class="fieldset-legend">Register</legend>
 
   <label class="lable" for="name" name="name">Name</label>
-  <input class="text" placeholder="Your Name" required>
+  <input type="text" name="name" class="text" placeholder="Your Name" required>
 
   <label class="label" for="email" name="email">Email</label>
   <input type="email" class="input" placeholder="Email" required />
