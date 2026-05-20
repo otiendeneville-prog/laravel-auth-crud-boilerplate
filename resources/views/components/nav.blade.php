@@ -36,6 +36,8 @@
     </ul>
   </div>
   <div class="navbar-end">
+    @guest
     <a class="btn btn-primary" href="/register">Register</a>
+    @endguest
   </div>
 </div>
