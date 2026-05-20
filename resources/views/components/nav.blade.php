@@ -39,5 +39,8 @@
     @guest
     <a class="btn btn-primary" href="/register">Register</a>
     @endguest
+    <form action="logout" method="POST">
+      <button class="btn btn-ghost">Logout</button>
+    </form>
   </div>
 </div>
