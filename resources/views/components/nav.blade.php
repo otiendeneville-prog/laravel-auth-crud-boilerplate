@@ -40,10 +40,15 @@
          @guest
              <a class="btn btn-primary" href="/register">Register</a>
          @endguest
-         <form action="logout" method="POST">
+
+         @auth
+             
+         @endauth
+         <form action="/logout" method="POST">
              @csrf
              @method('DELETE')
              <button class="btn btn-ghost">Logout</button>
          </form>
+         @endauth
      </div>
  </div>
