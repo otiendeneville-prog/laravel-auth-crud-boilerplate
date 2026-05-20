@@ -1,3 +1,4 @@
+
 <x-layout>
   register from here:
   <form action="/register" method="POST">
@@ -12,7 +13,7 @@
   <input type="email" name="email" class="input" placeholder="Email" required />
 
   <label class="label">Password</label>
-  <input type="password" name="password" class="input" placeholder="Password" name="password" required />
+  <input type="password" name="password" class="input" placeholder="Password" required />
 
   <button class="btn btn-neutral mt-4">Register</button>
 </fieldset>

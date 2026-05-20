@@ -16,11 +16,10 @@ class RegisteredUserController extends Controller
         return view('register');
     }
     public function store(Request $request){
-        dd($request->all());
         $request->validate([
             'name'=>['required','string','max:255'],
             'email'=>['required','string','email','max:255','unique:users'],
-            'Password' =>['required',password::default()],
+            'password' =>['required',password::default()],
         ]);
         $User = User::create([
             'name'=>$request->name,
