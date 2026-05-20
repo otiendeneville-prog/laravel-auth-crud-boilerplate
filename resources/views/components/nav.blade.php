@@ -42,8 +42,6 @@
          @endguest
 
          @auth
-             
-         @endauth
          <form action="/logout" method="POST">
              @csrf
              @method('DELETE')
