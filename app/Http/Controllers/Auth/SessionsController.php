@@ -10,6 +10,7 @@ use Illuminate\Validation\Rules\Password;
 use App\Models\User;
 
 
+
 class SessionsController extends Controller
 {
     /**
@@ -33,17 +34,20 @@ class SessionsController extends Controller
      */
     public function store(Request $request)
     {
-         $creditials =request->validate([
+         $credentials =$request->validate([
             'email'=>['required','email'],
             'password'=>['required'],
          ]);
 
-         if Auth::(attemp(creditials))
+         if (Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            return redirect()->intended('/ideas');
+         }
 
 
-           
+       return back()->withErrors(['email'=>'Invalid credentials']);   
     
-    };
+    }
     /**
      * Display the specified resource.
      */
