@@ -42,11 +42,11 @@
          @endguest
 
          @auth
-         <form action="/logout" method="POST">
-             @csrf
-             @method('DELETE')
-             <button class="btn btn-ghost">Logout</button>
-         </form>
+             <form action="/logout" method="POST">
+                 @csrf
+                 @method('DELETE')
+                 <button class="btn btn-ghost">Logout</button>
+             </form>
          @endauth
      </div>
  </div>

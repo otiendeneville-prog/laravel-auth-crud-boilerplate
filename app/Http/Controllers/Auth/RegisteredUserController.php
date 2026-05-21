@@ -8,28 +8,28 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
+
 class RegisteredUserController extends Controller
 
 {
-     public function create(){
-        
+    public function create()
+    {
+
         return view('register');
     }
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
-            'name'=>['required','string','max:255'],
-            'email'=>['required','string','email','max:255','unique:users'],
-            'password' =>['required',password::default()],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', password::default()],
         ]);
-        $User = User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>Hash::make($request->password),
+        $user = user::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
-        Auth::login($User);
-       return redirect('/ideas');
+        Auth::login($user);
+        return redirect('/ideas');
     }
 }
-
-
- 

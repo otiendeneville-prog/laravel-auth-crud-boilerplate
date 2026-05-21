@@ -62,7 +62,7 @@ class SessionsController extends Controller
      */
     public function destroy(string $id)
     {
-      Auth::logout();
-      return redirect('/ideas');
+        Auth::logout();
+        return redirect('/ideas');
     }
 }
