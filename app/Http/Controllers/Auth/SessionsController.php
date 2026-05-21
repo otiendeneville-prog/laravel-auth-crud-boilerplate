@@ -7,6 +7,7 @@ use App\Models\resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
+use App\Models\User;
 
 
 class SessionsController extends Controller
@@ -32,12 +33,17 @@ class SessionsController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' =>['required', password::default()],
-            
-    ]);}
+         $creditials =request->validate([
+            'email'=>['required','email'],
+            'password'=>['required'],
+         ]);
 
+         if Auth::(attemp(creditials))
+
+
+           
+    
+    };
     /**
      * Display the specified resource.
      */
