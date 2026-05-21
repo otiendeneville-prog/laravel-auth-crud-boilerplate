@@ -15,7 +15,7 @@
   <label class="label">Password</label>
   <input type="password" name="password" class="input" placeholder="Password" required />
 
-  <button class="btn btn-neutral mt-4">Register</button>
+  <button class="btn btn-neutral mt-4">Login</button>
 </fieldset>
 </form>
 </x-layout>
