@@ -41,11 +41,13 @@
              <a class="btn btn-primary" href="/register">Register</a>
          @endguest
 
-         @auth
+        @guest
              <form action="/login" method="POST">
-                <button class="btn btn-secondary">Login</button>
-            </form>             
-         @endauth
+                <button class="btn btn-secondary m-5">Login</button>
+            </form>  
+        @endguest
+                       
+      
 
          @auth
              <form action="/logout" method="POST">
