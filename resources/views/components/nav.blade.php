@@ -42,7 +42,7 @@
          @endguest
 
         
-             <form action="/login" method="POST">
+             <form action="/login" method="get">
 
                  <button class="btn btn-secondary m-5">Login</button>
              </form>
