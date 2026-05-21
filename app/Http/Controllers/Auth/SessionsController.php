@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Password;
+
 
 class SessionsController extends Controller
 {
@@ -31,8 +33,8 @@ class SessionsController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' =>['required', password::default()],
             
     ]);}
 
