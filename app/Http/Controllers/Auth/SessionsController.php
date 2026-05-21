@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\resource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
@@ -59,8 +60,9 @@ class SessionsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(resource $resource)
+    public function destroy(string $id)
     {
-        //
+      Auth::logout();
+      return redirect('/ideas');
     }
 }
