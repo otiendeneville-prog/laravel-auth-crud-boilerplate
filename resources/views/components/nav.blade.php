@@ -41,11 +41,12 @@
              <a class="btn btn-primary" href="/register">Register</a>
          @endguest
 
-        @guest
+        @auth
              <form action="/login" method="POST">
+                @csrf
                 <button class="btn btn-secondary m-5">Login</button>
             </form>  
-        @endguest
+        @endauth
                        
       
 
