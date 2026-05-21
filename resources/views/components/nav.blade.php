@@ -42,6 +42,12 @@
          @endguest
 
          @auth
+             <form action="/login" method="POST">
+                <button class="btn btn-secondary">Login</button>
+            </form>             
+         @endauth
+
+         @auth
              <form action="/logout" method="POST">
                  @csrf
                  @method('DELETE')
