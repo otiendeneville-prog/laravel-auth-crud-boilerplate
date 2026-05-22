@@ -8,11 +8,13 @@
             <input type="email" name="email" class="input" placeholder="Email" required />
             @error('email')
                 <div class="text-red-500">{{ $message }}</div>
-                @enderror
-                <label class="label">Password</label>
-                <input type="password" name="password" class="input" placeholder="Password" required />
-
-                <button class="btn btn-neutral mt-4">Login</button>
-            </fieldset>
-        </form>
-    </x-layout>
+            @enderror
+            <label class="label">Password</label>
+            <input type="password" name="password" class="input" placeholder="Password" required />
+            @error('password')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
+            <button class="btn btn-neutral mt-4">Login</button>
+        </fieldset>
+    </form>
+</x-layout>
