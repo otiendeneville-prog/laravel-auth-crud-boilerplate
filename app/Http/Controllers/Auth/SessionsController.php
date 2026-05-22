@@ -26,7 +26,7 @@ class SessionsController extends Controller
      */
     public function create()
     {
-        return view('components.login');
+        return view('auth.login');
     }
 
     /**
@@ -34,17 +34,15 @@ class SessionsController extends Controller
      */
     public function store(Request $request)
     {
-         $credentials =$request->validate([
-            'email'=>['required','email'],
-            'password'=>['required'],
+         $validate =$request->validate([
+            'email'=>['required','string','email','max:255'],
+            'password'=>['required','string',password::default()],
          ]);
 
          if (Auth::attempt($credentials)){
             $request->session()->regenerate();
             return redirect()->intended('/ideas');
          }
-
-
        return back()->withErrors(['email'=>'Invalid credentials']);   
     
     }
