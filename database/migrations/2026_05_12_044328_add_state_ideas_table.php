@@ -11,8 +11,10 @@ return new class extends Migration
     {
         Schema::create('ideas',function(Blueprint $table){
         $table->id();
+        $table->text('description');
         $table->string('state')->default('pending');
         $table ->timestamps();
+        $table ->foreignIdFor(user::class)->constrained->cascadeonDelete();
         $table->string('state')->nullable();
         });
     }
@@ -20,7 +22,7 @@ return new class extends Migration
     {
          Schema::dropIfExist('Idea');
     }
-}
+};
 
 
 
