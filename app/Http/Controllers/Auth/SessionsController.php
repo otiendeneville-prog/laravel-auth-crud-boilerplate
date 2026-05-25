@@ -26,8 +26,7 @@ class SessionsController extends Controller
      */
     public function create()
     {
-        return view('
-        login');
+        return view('components.login');
     }
 
     /**
