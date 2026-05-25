@@ -35,6 +35,10 @@ Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::get('/login',[SessionsController::class,'create']);
 Route::post('/login',[SessionsController::class,'store']);
 
+Route::get('admin', function(){
+    return 'private only admin area';
+});
+
 
 Route::delete('/logout', [SessionsController::class, 'destroy']);
 
