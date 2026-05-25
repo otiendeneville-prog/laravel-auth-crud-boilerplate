@@ -12,8 +12,8 @@ use App\Http\Controllers\Auth\SessionsController;
 Route::get('/', function () {
     return redirect('/ideas');
 });
-Route::middleware("auth")->group(function (){
-    Route::get('/ideas', [IdeaController::class, 'index']);
+
+Route::get('/ideas', [IdeaController::class, 'index']);
 //display a single idea;
 Route::get('/ideas/{idea}', [IdeaController::class, 'show']);
 //storing a new idea;
@@ -28,15 +28,12 @@ Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit']);
 
 //delete an idea moved outside the
 Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
-});
-Route::middleware("auth")->group(function(){
-   Route::get('/register', [RegisteredUserController::class, 'create']);
+
+
+Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::get('/login',[SessionsController::class,'create']);
 Route::post('/login',[SessionsController::class,'store']);
-});
-
-
 
 
 Route::delete('/logout', [SessionsController::class, 'destroy']);
