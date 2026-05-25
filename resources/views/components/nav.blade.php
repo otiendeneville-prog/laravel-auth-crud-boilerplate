@@ -20,6 +20,10 @@
              </ul>
          </div>
          <a class="btn btn-ghost text-xl"><a href="/idea"></a>Idea</a>
+         <a href=""></a>
+         @can('view-admin')
+             <li><a href="/admin">Admin</a></li>
+         @endcan
      </div>
      <div class="navbar-center hidden lg:flex">
          <ul class="menu menu-horizontal px-1">
