@@ -37,7 +37,7 @@ Route::post('/login',[SessionsController::class,'store']);
 
 Route::get('admin', function(){
     return 'private only admin area';
-});
+})->can('view-admin');
 
 
 Route::delete('/logout', [SessionsController::class, 'destroy']);
