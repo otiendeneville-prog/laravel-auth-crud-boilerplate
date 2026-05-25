@@ -11,8 +11,3 @@ class idea extends Model
     protected $fillable = ['description', 'state'];
     protected $table = 'idea';
 }
-
-public function user(){
-    return $this->belongsTo(user::class);
-};
-
