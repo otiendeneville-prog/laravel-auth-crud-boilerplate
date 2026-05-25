@@ -34,6 +34,10 @@
                      <ul class="p-2 bg-base-100 w-40 z-1">
                          <li><a href="/ideas">programs</a></li>
                          <li><a href="/ideas/create">comments</a></li>
+                         @can('view-admin')
+                         <li><a href="/admin">Admin</a></li>
+                         @endcan
+
                      </ul>
                  </details>
              </li>
