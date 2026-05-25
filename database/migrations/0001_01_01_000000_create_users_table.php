@@ -18,8 +18,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->text('description');
-            $table ->foreignId(User::class)->constrained()->cascadeOnDelete();
+            $table->text('description')->nullable();
+            $table->string('state')->default('pending');
             $table->timestamps();
         });
 
