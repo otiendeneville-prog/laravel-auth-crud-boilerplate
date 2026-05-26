@@ -5,7 +5,7 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
-
+@plugin "daisyui";
 
 
 @theme {
