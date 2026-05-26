@@ -15,7 +15,7 @@
     
 </head>
 
-<body class="">
+<body class="text-primary">
     <x-nav/>
     <main class="max-w-3xl mx-auto">
         {{ $slot }}
