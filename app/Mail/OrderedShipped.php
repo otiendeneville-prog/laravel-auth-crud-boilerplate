@@ -39,7 +39,7 @@ class OrderedShipped extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.ordered_shipped',
+            markdown: 'ordered-shipped',
             
 
         );
