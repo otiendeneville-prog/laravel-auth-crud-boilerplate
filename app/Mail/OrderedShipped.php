@@ -29,9 +29,7 @@ class OrderedShipped extends Mailable
     {
         return new Envelope(
             subject: 'Ordered Shipped',
-            from: 'Neuville@gamil.com',
-            to :'customer@gmail.com',
-            view :'emails.order_shipped'
+            from: new\illuminate\Mail\Mailables\Address('Neuville@gamil.com','Neuville Shop'),
         );
     }
 
@@ -41,7 +39,7 @@ class OrderedShipped extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.ordered-shipped',
+            markdown: 'emails.ordered_shipped',
             
 
         );
