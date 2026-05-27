@@ -42,3 +42,8 @@ Route::get('admin', function(){
 
 Route::delete('/logout', [SessionsController::class, 'destroy']);
 
+Route::get('/',function(){
+    Mail::send(new\App\Mail\OrderShipped());
+
+    return view('/ideas');
+})
