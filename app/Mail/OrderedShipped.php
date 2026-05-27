@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Queue\SerializesModels;
 
 class OrderedShipped extends Mailable
@@ -43,6 +44,16 @@ class OrderedShipped extends Mailable
             
 
         );
+    }
+
+    public function toMail (object $notifilable): MailMessage
+    {
+        $url =url('/ideas/' .$this->idea->id);
+        return (new MailMessage)
+       ->greeting('Hello')
+       ->line('You published a new idea')
+       ->action('read it',$url)
+       ->line('Thank you for using our action!');
     }
 
     /**
