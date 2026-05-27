@@ -29,7 +29,7 @@ class OrderedShipped extends Mailable
     {
         return new Envelope(
             subject: 'Ordered Shipped',
-            from: new \illuminate\Mail\Mailables\Address('Neuville@gamil.com','Neuville Shop'),
+            from: new \Illuminate\Mail\Mailables\Address('Neuville@gamil.com','Neuville Shop'),
         );
     }
 
