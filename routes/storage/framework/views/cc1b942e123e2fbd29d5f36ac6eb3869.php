@@ -1,0 +1,66 @@
+ <div class="navbar bg-base-100 shadow-sm">
+     <div class="navbar-start">
+         <div class="dropdown">
+             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                 </svg>
+             </div>
+             <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                 <li><a>Home</a></li>
+                 <li>
+                     <a>Parent</a>
+                     <ul class="p-2">
+                         <li><a>Submenu 1</a></li>
+                         <li><a>Submenu 2</a></li>
+                     </ul>
+                 </li>
+                 <li><a>About</a></li>
+             </ul>
+         </div>
+         <a class="btn btn-ghost text-xl"><a href="/idea"></a>Idea</a>
+         <a href=""></a>
+         <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('view-admin')): ?>
+             <li><a href="/admin">Admin</a></li>
+         <?php endif; ?>
+     </div>
+     <div class="navbar-center hidden lg:flex">
+         <ul class="menu menu-horizontal px-1">
+             <li><a>Services</a></li>
+             <li>
+                 <details>
+                     <summary>Parent</summary>
+                     <ul class="p-2 bg-base-100 w-40 z-1">
+                         <li><a href="/ideas">programs</a></li>
+                         <li><a href="/ideas/create">comments</a></li>
+                         <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('view-admin')): ?>
+                         <li><a href="/admin">Admin</a></li>
+                         <?php endif; ?>
+
+                     </ul>
+                 </details>
+             </li>
+             <li><a>Contacts</a></li>
+         </ul>
+     </div>
+     <div class="navbar-end">
+         <?php if(auth()->guard()->guest()): ?>
+             <a class="btn btn-primary" href="/register">Register</a>
+         <?php endif; ?>
+
+        
+             <form action="/login" method="get">
+
+                 <button class="btn btn-secondary m-5">Login</button>
+             </form>
+         <?php if(auth()->guard()->check()): ?>
+             <form action="/logout" method="POST">
+                 <?php echo csrf_field(); ?>
+                 <?php echo method_field('DELETE'); ?>
+                 <button class="btn btn-ghost">Logout</button>
+             </form>
+         <?php endif; ?>
+     </div>
+ </div>
+<?php /**PATH C:\Users\churc\Desktop\php-laravel\lms\resources\views/components/nav.blade.php ENDPATH**/ ?>
