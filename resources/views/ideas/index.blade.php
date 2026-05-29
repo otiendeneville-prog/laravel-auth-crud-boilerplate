@@ -1,4 +1,4 @@
-Set-Content -Path 'resources/views/ideas/index.blade.php' -Value '<x-layout>
+<x-layout>
   <form method="POST" action="/ideas">
    @csrf
    <div class="col-span-full">
@@ -9,7 +9,7 @@ Set-Content -Path 'resources/views/ideas/index.blade.php' -Value '<x-layout>
       <p class="mt-3 text-sm/6 text-white-400">You have an idea want to save for later.</p>
    </div>
    <div class="mt-6 flex items-center gap-x-6">
-      <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white focus-visible:outline-indigo-500">Save</button>
+      <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white">Save</button>
    </div>
   </form>
   <hr class="my-6 border-white/10">
@@ -18,4 +18,4 @@ Set-Content -Path 'resources/views/ideas/index.blade.php' -Value '<x-layout>
          <li class="mb-2">{{ $idea->content }}</li>
      @endforeach
   </ul>
-</x-layout>'
+</x-layout>
