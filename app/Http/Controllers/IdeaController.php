@@ -1,1 +1,63 @@
-<?php\n\nnamespace App\Http\Controllers;\n\nuse App\Models\Idea;\nuse Illuminate\Http\Request;\n\nclass IdeaController extends Controller\n{\n    public function index()\n    {\n        \ = Idea::latest()->get();\n        return view('ideas.index', compact('ideas'));\n    }\n}
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Idea;
+use Illuminate\Http\Request;
+
+class IdeaController extends Controller
+{
+    public function index()
+    {
+        $ideas = Idea::with('user')->latest()->paginate(10);
+        return view('ideas.index', compact('ideas'));
+    }
+
+    public function show(Idea $idea)
+    {
+        return view('ideas.show', compact('idea'));
+    }
+
+    public function create()
+    {
+        return view('ideas.create');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'idea' => 'required|string|min:5|max:1000',
+        ]);
+
+        auth()->user()->ideas()->create($validated);
+
+        return redirect('/ideas')->with('success', 'Idea created successfully!');
+    }
+
+    public function edit(Idea $idea)
+    {
+        $this->authorize('update', $idea);
+        return view('ideas.edit', compact('idea'));
+    }
+
+    public function update(Request $request, Idea $idea)
+    {
+        $this->authorize('update', $idea);
+
+        $validated = $request->validate([
+            'idea' => 'required|string|min:5|max:1000',
+        ]);
+
+        $idea->update($validated);
+
+        return redirect('/ideas/' . $idea->id)->with('success', 'Idea updated successfully!');
+    }
+
+    public function destroy(Idea $idea)
+    {
+        $this->authorize('delete', $idea);
+        $idea->delete();
+
+        return redirect('/ideas')->with('success', 'Idea deleted successfully!');
+    }
+}
