@@ -1,0 +1,1 @@
+@if(session(" success\)) <p>{{ session(\success\) }}</p> @endif <h1>Shared Ideas Page</h1> <form method=\POST\ action=\/ideas\> @csrf <textarea name=\idea\ required></textarea> <button>Save</button> </form> <ul> @foreach(\ as \) <li>{{ \->content }}</li> @endforeach </ul>

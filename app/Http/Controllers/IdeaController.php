@@ -1,14 +1,1 @@
-<?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class IdeaController extends Controller
-{
-    public function index(){
-        $ideas = idea::latest()->get;
-
-        return view('ideas');
-    }
-}
+<?php\n\nnamespace App\Http\Controllers;\n\nuse App\Models\Idea;\nuse Illuminate\Http\Request;\n\nclass IdeaController extends Controller\n{\n    public function index()\n    {\n        \ = Idea::latest()->get();\n        return view('ideas.index', compact('ideas'));\n    }\n}
