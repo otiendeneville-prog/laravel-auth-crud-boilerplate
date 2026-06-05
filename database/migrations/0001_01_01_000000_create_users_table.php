@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('status')->default('pending');
             $table->timestamp();
             $table->json('links')->defeult('[]');
         });
