@@ -12,9 +12,8 @@ Route::get('/', function () {
 
 // Public routes for ideas (view only)
 Route::get('/ideas', [IdeaController::class, 'index']);
-Route::get('/ideas/{idea}', [IdeaController::class, 'show']);
 
-// Protected routes for ideas (create, update, delete)
+// Protected routes for ideas (create, update, delete) - MUST come before {idea} route
 Route::middleware('auth')->group(function () {
     Route::get('/ideas/create', [IdeaController::class, 'create']);
     Route::post('/ideas', [IdeaController::class, 'store']);
@@ -22,6 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/ideas/{idea}', [IdeaController::class, 'update']);
     Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
 });
+
+// Single idea detail view (must come last)
+Route::get('/ideas/{idea}', [IdeaController::class, 'show']);
 
 // Auth routes
 Route::get('/register', [RegisteredUserController::class, 'create']);
