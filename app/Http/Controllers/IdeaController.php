@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Idea;
 use Illuminate\Http\Request;
+use IIlluminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class IdeaController extends Controller
 {
+    use AuthorizesRequests;
     public function index()
     {
         $ideas = Idea::with('user')->latest()->paginate(10);
