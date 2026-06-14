@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Idea extends Model
 {
+
+
     protected $fillable = [
         'idea',
         'user_id',
