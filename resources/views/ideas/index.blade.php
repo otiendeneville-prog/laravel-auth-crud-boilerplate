@@ -18,7 +18,7 @@
                 <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
                     <div class="flex justify-between items-start mb-3">
                         <div>
-                            <h3 class="text-lg font-semibold text-white">{{ $idea->user->name }}</h3>
+                           <h3 class="text-lg font-semibold text-white">{{ $idea->user?->name ?? 'Anonymous' }}</h3>
                             <p class="text-sm text-gray-400">{{ $idea->created_at->diffForHumans() }}</p>
                         </div>
                         @can('update', $idea)
