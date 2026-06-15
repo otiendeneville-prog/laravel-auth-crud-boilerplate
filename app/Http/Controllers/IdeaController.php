@@ -12,7 +12,7 @@ class IdeaController extends Controller
     use AuthorizesRequests;
     public function index()
     {
-        $ideas = Idea::with('user')->latest()->paginate(10);
+        $ideas = auth()->user()->ideas()->with('user')->latest()->paginate(10);
         return view('ideas.index', compact('ideas'));
     }
 
