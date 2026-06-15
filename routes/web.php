@@ -10,10 +10,16 @@ Route::get('/', function () {
     return redirect('/ideas');
 });
 
-// Public routes for ideas (view only)
-Route::get('/ideas', [IdeaController::class, 'index']);
+// Auth Routes (Named so the 'auth' middleware knows where to redirect)
+Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store']);
+Route::get('/login', [SessionsController::class, 'create'])->name('login');
+Route::post('/login', [SessionsController::class, 'store']);
+Route::delete('/logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
+// Protected Idea Routes (Only for logged-in users)
 Route::middleware('auth')->group(function () {
+    Route::get('/ideas', [IdeaController::class, 'index']); // Moved inside auth so users only see their own ideas
     Route::get('/ideas/create', [IdeaController::class, 'create']);
     Route::post('/ideas', [IdeaController::class, 'store']);
     Route::get('/ideas/{idea}/edit', [IdeaController::class, 'edit']);
@@ -21,17 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy']);
 });
 
-// Single idea detail view (must come last)
+// Public Idea Routes (Anyone can see a specific idea)
 Route::get('/ideas/{idea}', [IdeaController::class, 'show']);
-
-// auth
-Route::get('/register', [RegisteredUserController::class, 'create']);
-Route::post('/register', [RegisteredUserController::class, 'store']);
-Route::get('/login', [SessionsController::class, 'create']);
-Route::post('/login', [SessionsController::class, 'store']);
-Route::delete('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
-Route::get('/ideas', [IdeaController::class, 'index'])->middleware('auth');
-
 
 // Admin route
 Route::get('/admin', function () {
